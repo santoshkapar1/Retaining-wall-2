@@ -1,0 +1,54 @@
+{
+  "name": "retaining-wall-design",
+  "version": "1.0.0",
+  "description": "Retaining Wall Design CAD Suite (Masonry, Gabion & RCC Retaining Walls)",
+  "main": "main.js",
+  "author": {
+    "name": "Er. Santosh Kapar",
+    "email": "santoshkapar111@gmail.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win --x64",
+    "build:portable": "electron-builder --win portable --x64"
+  },
+  "build": {
+    "appId": "np.gov.dor.retainingwalldesign",
+    "productName": "Retaining Wall Design",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  }
+}
